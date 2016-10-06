@@ -11,6 +11,10 @@ end
     @article = Article.new
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   def create
     #@article = Article.new(params[:article]) #params[:article] contains the attributes we want
     @article = Article.new(article_params) #this line restricts the param instead of the top line
@@ -23,6 +27,16 @@ end
                    #the new template when it is rendered. This rendering is done within the
                    #same request as the form submission, whereas the redirect_to will tell
                    #the browser to issue another request.
+    end
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
     end
   end
 
