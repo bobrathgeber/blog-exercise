@@ -4,7 +4,9 @@ Rails.application.routes.draw do
                         #or animals. You can create, read, update and destroy
                         #items for a resource and these operations are referred
                         #to as CRUD operations.
+resources :articles do
   resources :comments
+end
 
   root 'welcome#index'  #sets fallback page to load
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
