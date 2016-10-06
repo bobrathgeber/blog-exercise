@@ -1,4 +1,6 @@
 <h1>New Article</h1>
+<%
+=begin %> <---- this is a comment block starter
 <%= form_for :article, url: articles_path do |f| %> <%# Creates a form for 'article' %>
               <%# The articles_path helper tells Rails to point the form to the
               URI Pattern associated with the articles prefix; and the form will
@@ -36,5 +38,9 @@
     <%= f.submit %>
   </p>
 <% end %>
+<--This is the end of the comment block. We replaced this with _form.html.erb and are calling it right below
+<%
+=end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', articles_path %>
